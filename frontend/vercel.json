@@ -1,6 +1,9 @@
 {
     "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+      {
+        "source": "/api/:path*",
+        "destination": "https://edutech-production.up.railway.app/api/:path*"
+      }
     ]
   }
   
