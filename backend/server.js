@@ -77,7 +77,7 @@ app.post("/api/ai/analyze", async (req, res) => {
 // ✅ Initialize Socket.io after defining `server`
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://edutech-jidneshpatil41-gmailcoms-projects.vercel.app", // Updated frontend URL
+    origin: "https://edutech-six-blue.vercel.app/", // Updated frontend URL
     methods: ["GET", "POST"],
   },
 });
