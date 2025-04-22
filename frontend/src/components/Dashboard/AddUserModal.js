@@ -29,7 +29,7 @@ const AddUserModal = ({ closeModal }) => {
     try {
       console.log("User Data Being Sent:", newUser); // Debug: Log the data before sending
 
-      await axios.post("http://localhost:5000/api/auth/register", newUser);
+      await axios.post("https://edutech-production.up.railway.app/api/auth/register", newUser);
       alert("User added successfully!");
       setNewUser({
         name: "",

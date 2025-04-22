@@ -19,7 +19,7 @@ const AdminDashboard = () => {
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:5000/api/admin/users");
+            const response = await axios.get("https://edutech-production.up.railway.app/api/admin/users");
             if (response.data) {
                 setParents(response.data.parents || []);
                 setTeachers(response.data.teachers || []);

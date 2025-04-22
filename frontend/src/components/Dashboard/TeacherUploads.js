@@ -29,7 +29,7 @@ const TeacherUploads = ({ selectedStudent }) => {
     formData.append("studentId", selectedStudent); // Attach student ID for upload
 
     try {
-      const response = await axios.post("http://localhost:5000/upload/upload", formData, {
+      const response = await axios.post("https://edutech-production.up.railway.app/upload/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

@@ -23,7 +23,7 @@ const ParentDashboard = () => {
         setLoading(true);
 
         Promise.all([
-            axios.get(`http://localhost:5000/api/performance/${studentID}`)
+            axios.get(`https://edutech-production.up.railway.app/api/performance/${studentID}`)
                 .then(res => setPerformance(res.data || []))
                 .catch(err => {
                     console.error("Performance Fetch Error:", err);

@@ -39,7 +39,7 @@ const TeacherInputs = ({
       return
     }
     try {
-      await axios.post("http://localhost:5000/api/attendance", {
+      await axios.post("https://edutech-production.up.railway.app/api/attendance", {
         studentID: selectedStudent,
         status: attendanceStatus,
         date: selectedDate,
@@ -63,7 +63,7 @@ const TeacherInputs = ({
       return
     }
     try {
-      await axios.post("http://localhost:5000/api/remarks", {
+      await axios.post("https://edutech-production.up.railway.app/api/remarks", {
         studentID: selectedStudent,
         remark: remarkText,
         date: selectedDate,
@@ -87,7 +87,7 @@ const TeacherInputs = ({
       return
     }
     try {
-      await axios.post("http://localhost:5000/api/performance", {
+      await axios.post("https://edutech-production.up.railway.app/api/performance", {
         studentID: selectedStudent,
         marks: Number.parseFloat(marks),
         outOf: Number.parseFloat(outOf),

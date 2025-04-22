@@ -29,7 +29,7 @@ const Login = () => {
 
         // Otherwise, try logging in as a teacher or parent
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/login", formData);
+            const response = await axios.post("https://edutech-production.up.railway.app/api/auth/login", formData);
 
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data.user));

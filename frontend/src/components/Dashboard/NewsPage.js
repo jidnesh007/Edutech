@@ -20,7 +20,7 @@ const NewsPage = () => {
 
     const fetchNews = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/news/get");
+            const response = await axios.get("https://edutech-production.up.railway.app/api/news/get");
             setNews(response.data);
         } catch (error) {
             console.error("Error fetching news:", error);

@@ -39,7 +39,7 @@ const UserTable = ({ title, users, handleDelete, fetchUsers }) => {
     const handleSave = async () => {
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/auth/users/${editedUser._id}`,
+                `https://edutech-production.up.railway.app/api/auth/users/${editedUser._id}`,
                 editedUser
             );
 

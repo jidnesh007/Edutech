@@ -27,7 +27,7 @@ const TeacherDashboard = () => {
     if (!user || user.role !== "teacher") return
     setLoading(true)
     axios
-      .get("http://localhost:5000/api/students")
+      .get("https://edutech-production.up.railway.app/api/students")
       .then((res) => setStudents(res.data))
       .catch((err) => console.error("Error fetching students:", err))
       .finally(() => setLoading(false))
@@ -41,10 +41,10 @@ const TeacherDashboard = () => {
     try {
       setLoading(true)
       const [attendanceRes, performanceRes, remarkRes, uploadRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/attendance/${selectedStudent}`),
-        axios.get(`http://localhost:5000/api/performance/${selectedStudent}`),
-        axios.get(`http://localhost:5000/api/remarks/${selectedStudent}`),
-        axios.get(`http://localhost:5000/upload/student/${selectedStudent}`)
+        axios.get(`https://edutech-production.up.railway.app/api/attendance/${selectedStudent}`),
+        axios.get(`https://edutech-production.up.railway.app/api/performance/${selectedStudent}`),
+        axios.get(`https://edutech-production.up.railway.app/api/remarks/${selectedStudent}`),
+        axios.get(`https://edutech-production.up.railway.app/upload/student/${selectedStudent}`)
       ])
       setAttendanceHistory(attendanceRes.data)
       setPerformanceHistory(performanceRes.data)

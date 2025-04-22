@@ -45,15 +45,16 @@ app.use("/uploads", express.static("uploads"));
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: "pt-communication"
+      dbName: "pt-communication",
     });
-    console.log(`✅ Connected to MongoDB: ${mongoose.connection.db.databaseName}`);
+    console.log(
+      `✅ Connected to MongoDB: ${mongoose.connection.db.databaseName}`
+    );
   } catch (err) {
     console.error("❌ MongoDB connection error:", err);
     process.exit(1);
   }
 };
-
 
 // Home Route
 app.get("/", (req, res) => {
@@ -64,7 +65,9 @@ app.get("/", (req, res) => {
 app.post("/api/ai/analyze", async (req, res) => {
   try {
     const { marks } = req.body;
-    const response = await axios.post("http://127.0.0.1:5001/analyze", { marks });
+    const response = await axios.post("http://127.0.0.1:5001/analyze", {
+      marks,
+    });
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: "Failed to get AI analysis" });
@@ -74,14 +77,12 @@ app.post("/api/ai/analyze", async (req, res) => {
 // ✅ Initialize Socket.io after defining `server`
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000", // Adjust for frontend URL
-    methods: ["GET", "POST"]
-  }
+    origin: "https://edutech-jidneshpatil41-gmailcoms-projects.vercel.app", // Updated frontend URL
+    methods: ["GET", "POST"],
+  },
 });
 
 io.on("connection", (socket) => {
-
-
   // Listen for attendance update
   socket.on("attendanceUpdate", (data) => {
     io.emit("attendanceUpdated", data);
@@ -96,8 +97,6 @@ io.on("connection", (socket) => {
   socket.on("remarkAdded", (data) => {
     io.emit("remarkNotification", data);
   });
-
-  
 });
 
 // Start the server after connecting to the database

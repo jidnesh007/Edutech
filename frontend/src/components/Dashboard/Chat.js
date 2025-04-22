@@ -19,7 +19,7 @@ const Chat = () => {
         setIsTyping(true);
 
         try {
-            const res = await axios.post("http://localhost:5000/api/chat", { message });
+            const res = await axios.post("https://edutech-production.up.railway.app/api/chat", { message });
             // After the response is received, add AI's reply and hide typing simulation
             setMessages([
                 ...messages,

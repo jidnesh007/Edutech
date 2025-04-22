@@ -9,7 +9,7 @@ const DailyRemark = ({ selectedStudent }) => {
         if (!selectedStudent || !remarkText.trim()) return toast.error("⚠️ Enter a remark!");
 
         try {
-            await axios.post("http://localhost:5000/api/remarks", {
+            await axios.post("https://edutech-production.up.railway.app/api/remarks", {
                 studentID: selectedStudent.studentID,
                 remark: remarkText,
             });

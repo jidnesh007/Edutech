@@ -15,7 +15,7 @@ const AttendanceChart = ({ studentID }) => {
         const fetchAttendanceData = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:5000/api/attendance/report/${studentID}?period=${period}`
+                    `https://edutech-production.up.railway.app/api/attendance/report/${studentID}?period=${period}`
                 );
 
                 const records = response.data.attendanceRecords;
